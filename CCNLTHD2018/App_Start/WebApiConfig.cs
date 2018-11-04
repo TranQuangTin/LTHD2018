@@ -17,9 +17,14 @@ namespace CCNLTHD2018
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+                routeTemplate: "api/{controller}/{action}/{id}",
+                defaults: new { action = RouteParameter.Optional, id = RouteParameter.Optional }
             );
+            //config.Routes.MapHttpRoute(
+            //    name: "ControllerAndAction",
+            //    routeTemplate: "api/{controller}/{action}"
+            //    );
+
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
             var json = config.Formatters.JsonFormatter;
             json.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;

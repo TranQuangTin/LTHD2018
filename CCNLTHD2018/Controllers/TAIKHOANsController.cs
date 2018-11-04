@@ -35,6 +35,21 @@ namespace CCNLTHD2018.Controllers
             return Ok(tAIKHOAN);
         }
 
+        // POST: api/TAIKHOANs
+        [ActionName("login")]
+        public IHttpActionResult PostLogin(TAIKHOAN tAIKHOAN)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            if (TAIKHOANExists("*", tAIKHOAN.TaiKhoan1, tAIKHOAN.MatKhau))
+            {
+                return Ok("Login success, waiting for token validate...");
+            }
+            return BadRequest();
+        }
+
         // PUT: api/TAIKHOANs/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutTAIKHOAN(string id, TAIKHOAN tAIKHOAN)
@@ -125,9 +140,9 @@ namespace CCNLTHD2018.Controllers
             base.Dispose(disposing);
         }
 
-        private bool TAIKHOANExists(string id)
+        private bool TAIKHOANExists(string id = "*", string username = "*", string password = "*")
         {
-            return db.TAIKHOANs.Count(e => e.MaNV == id) > 0;
+            return db.TAIKHOANs.Count(e => (id == "*" || e.MaNV == id) && (username == "*" || username == e.TaiKhoan1) && (password == "*" || password == e.MatKhau)) > 0;
         }
     }
 }
