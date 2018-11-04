@@ -106,8 +106,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\CHITIETPHIEUMUONsController.cs" />
+    <Compile Include="Controllers\DOCGIAsController.cs" />
+    <Compile Include="Controllers\LOAISACHesController.cs" />
+    <Compile Include="Controllers\MUONSACHesController.cs" />
+    <Compile Include="Controllers\NHANVIENsController.cs" />
+    <Compile Include="Controllers\NHAXBsController.cs" />
     <Compile Include="Controllers\SACHesController.cs" />
+    <Compile Include="Controllers\TAIKHOANsController.cs" />
     <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\TINHTRANGsController.cs" />
+    <Compile Include="Controllers\TRASACHesController.cs" />
+    <Compile Include="Controllers\VIPHAMsController.cs" />
     <Compile Include="Data\CHITIETPHIEUMUON.cs">
       <DependentUpon>Library.tt</DependentUpon>
     </Compile>
@@ -159,7 +169,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\SACH.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -180,6 +189,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
